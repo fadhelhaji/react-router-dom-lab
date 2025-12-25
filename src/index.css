@@ -103,6 +103,7 @@ label,
 button {
   margin: 16px 0px;
   font-weight: bold;
+  margin-right: 20px;
 }
 
 input,
@@ -113,4 +114,8 @@ textarea {
 
 button {
   background-color: #535bf2;
+}
+
+.title {
+  color: aliceblue;
 }

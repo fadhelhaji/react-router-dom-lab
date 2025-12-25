@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { ClimbingBoxLoader } from 'react-spinners'
 
 function MailboxDetails() {
     const [mail, setMail] = useState(null)
@@ -20,7 +21,7 @@ function MailboxDetails() {
         <h2>Details</h2>
         <p>Owner: {mail.owner}</p>
         <p>Size: {mail.size}</p>
-        </>) : <h2>Please wait...</h2>}
+        </>) : <h2>Please wait... <ClimbingBoxLoader color="#F5F5F5" /></h2>}
     </div>
   )
 }
