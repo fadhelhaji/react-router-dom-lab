@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 
 function MailboxForm() {
     const navigate = useNavigate()
+    const {id} = useParams()
     const [newMail, setNewMail] = useState({
         owner: '',
         size: ''
@@ -12,12 +13,13 @@ function MailboxForm() {
         try {
             event.preventDefault()
             const createMail = await axios.post(import.meta.env.VITE_API_URL, newMail)
-            navigate('/mailboxes')
+            const createdMailId = createMail.data._id
+            navigate(`/mailboxes/${createdMailId}`)
         } catch (error) {
             console.log(error); 
         }
     }
-    async function handleChange(event) {
+    function handleChange(event) {
         try {
             setNewMail({...newMail, [event.target.name] : event.target.value})
         } catch (error) {
