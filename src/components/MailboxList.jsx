@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 function MailboxList() {
     const [mail, setMail] = useState([])
@@ -17,7 +18,10 @@ function MailboxList() {
     <div>
         {mail.map((oneLetter)=>{
             return (
+                <>
                 <h3>Owner: {oneLetter.owner} | Size: {oneLetter.size}</h3>
+                <Link to={`/mailboxes/${oneLetter._id}`}>See mail details</Link>        
+                </>
             )
         })}
     </div>
